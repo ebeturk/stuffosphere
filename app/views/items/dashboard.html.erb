@@ -1,0 +1,10 @@
+<h1>My Items 🐲</h1>
+
+<ul>  <% @items.each  do |item| %>
+    <li class="list-group list-group-flush">
+      <%= link_to item.name, item_path(item), class: 'btn btn-warning' %>
+      <br>
+      <%#= cl_image_tag dragon.photo.key, width: 300, height: 300, crop: :fill, radius: 20 %>
+    </li>
+  <% end %>
+</ul>

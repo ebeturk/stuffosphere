@@ -1,0 +1,25 @@
+<div class="card mb-3">
+  <%= image_tag asset_path("drill.jpg") %>
+  <%#= cl_image_tag @item.image.path, class: "card-img-top", height: 400, crop: :fill %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @item.name %></h5>
+    <p class="card-text">Category: <%= @item.category %></p>
+    <p class="card-text">Availability: <%= @item.status %></p>
+    <p class="card-text">Notes: <%= @item.notes %></p>
+  </div>
+
+  <div class="borrowing-form card mb-3">
+    <% if user_signed_in? && current_user != @item.user %>
+  <%= form_with model: @borrowing, url: item_borrowings_path(@item), local: true do |form| %>
+    <%= form.label :start_time, "Start Date" %>
+    <%= form.date_field :start_time, class: "form-control mb-3" %>
+
+    <%= form.label :end_time, "End Date" %>
+    <%= form.date_field :end_time, class: "form-control mb-3" %>
+
+    <%= form.submit "Borrow", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+  </div>
+  </div>
+</div>

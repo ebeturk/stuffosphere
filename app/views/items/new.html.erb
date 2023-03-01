@@ -1,0 +1,14 @@
+<div class="add-form">
+  <h1>Add an Item</h1>
+  <div class="form">
+    <%= simple_form_for @item do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category, collection: ["All", "Household", "Electronics", "Appliances", "Clothing", "Tools", "Instruments", "Wheels", "Other"]   %>
+    <%= f.input :notes %>
+    <%= f.input :status, collection: Item::STATUSES %>
+    <%= f.button :submit %>
+<% end %>
+
+  </div>
+
+</div>

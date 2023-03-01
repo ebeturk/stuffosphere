@@ -1,0 +1,35 @@
+<div class="search-bar">
+  <%= form_tag items_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search items" %>
+  <%= select_tag :category, options_for_select(["All", "Household", "Electronics", "Appliances", "Clothing", "Tools", "Instruments", "Wheels", "Other"]) %>
+  <%= text_field_tag :start_date, params[:start_date], placeholder: "Start date", data: { "controller": "flatpickr" } %>
+  <%= text_field_tag :end_date, params[:end_date], placeholder: "End date", data: { "controller": "flatpickr" } %>
+  <%= submit_tag "Search" %>
+<% end %>
+</div>
+
+
+<div class="container">
+  <div class="row row-cols-2 g-3">
+    <% @items.each do |item| %>
+      <div class="col">
+        <div class="card h-100">
+          <div class="card-image">
+            <%#= cl_image_tag item.photo.key, class: "card-img-top img-fluid rounded mx-auto d-block" %>
+            <%= image_tag asset_path("drill.jpg") %>
+          </div>
+          <div class="card-info">
+            <h5 class="card-title"><%= link_to item.name, item %></h5>
+            <p class="card-text">
+              <%= item.category %>
+              <% if item.status = 'available' %>
+                <span class="badge bg-success">Available</span>
+              <% else %>
+                <span class="badge bg-danger">Not Available</span>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>

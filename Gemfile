@@ -75,3 +75,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'devise'
+gem 'faker'
+gem 'bootstrap', '~> 5.1.3'
+gem "cloudinary"
+gem "dotenv-rails", groups: [:development, :test]
