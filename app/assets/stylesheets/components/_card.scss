@@ -2,3 +2,16 @@
   height: 600px;
   width: 300px;
 }
+
+.btn-custom-delete {
+  background-color: transparent;
+  color: #b7347334;
+  border: 0px solid #ee94c62a;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-custom-delete:hover,
+.btn-custom-delete:focus {
+  background-color: #edb4ba2d;
+  color: #dd237dfe;
+}

@@ -5,13 +5,19 @@
 @import "navbar";
 @import "card";
 @import "form";
+@import "footer";
 
 
-.container {
-  padding: 30px 0;
-  margin: 20px auto;
+.cards-container {
+  padding: 20px 0;
+  margin: 0 auto;
 
 }
 .form-link {
   padding: 10px 0;
+}
+
+#search-bar {
+  margin: 0 auto;
+  padding: 20px;
 }

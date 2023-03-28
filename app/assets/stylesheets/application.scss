@@ -11,17 +11,8 @@
 @import "components/index";
 @import "components/alert";
 @import "pages/index";
+@import "pages/main";
 
 /*
  *= require bootstrap
  */
-
-img {
-  width: 300px;
-  height: 400px;
-}
-
-.container {
-  width: 800px;
-  margin: 0 auto;
-}

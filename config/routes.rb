@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
-  # get 'borrowings/new'
-  # get 'borrowings/create'
-  # get 'borrowings/edit'
-  # get 'borrowings/update'
-  # get 'borrowings/destroy'
-  # get 'items/index'
-  # get 'items/show'
-  # get 'items/new'
-  # get 'items/create'
-  # get 'items/edit'
-  # get 'items/update'
-  # get 'items/destroy'
-  # Root path
+
   root 'items#index'
   get   'dashboard', to: 'items#dashboard'
 

@@ -11,9 +11,9 @@ class BorrowingsController < ApplicationController
     @borrowing.user = current_user
     @borrowing.item = @item
     if @borrowing.save
-      redirect_to @item, notice: 'Borrowing was successfully created.'
+      redirect_to @item, notice: 'Yes, come and get it. But use it with care!'
     else
-      render :new
+      redirect_to item_path(@item, anchor: 'borrowing-form'), alert: 'Item is already borrowed for these dates. Try some other date.'
     end
   end
 

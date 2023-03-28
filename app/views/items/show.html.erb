@@ -1,25 +1,34 @@
-<div class="card mb-3">
-  <%= image_tag asset_path("drill.jpg") %>
-  <%#= cl_image_tag @item.image.path, class: "card-img-top", height: 400, crop: :fill %>
+<div class="card mb-3 position-relative">
+  <% if @item.photo.present? %>
+    <%= cl_image_tag @item.photo.key, class: "card-img-top", width: 300, height: 400, crop: :fit %>
+  <% else %>
+    <%= image_tag asset_path("drill.jpg") %>
+  <% end %>
   <div class="card-body">
     <h5 class="card-title"><%= @item.name %></h5>
     <p class="card-text">Category: <%= @item.category %></p>
     <p class="card-text">Availability: <%= @item.status %></p>
     <p class="card-text">Notes: <%= @item.notes %></p>
+
+    <div class="position-absolute top-0 end-0">
+      <% if user_signed_in? && current_user == @item.user %>
+        <%= link_to "DELETE", @item, method: :delete, data: {turbo_method: :delete, turbo_confirm: "You are about to remove the item from Stuffosphere. Are you sure you would like to to this?" }, class: "btn btn-custom-delete" %>
+      <% end %>
+    </div>
   </div>
 
   <div class="borrowing-form card mb-3">
     <% if user_signed_in? && current_user != @item.user %>
-  <%= form_with model: @borrowing, url: item_borrowings_path(@item), local: true do |form| %>
-    <%= form.label :start_time, "Start Date" %>
-    <%= form.date_field :start_time, class: "form-control mb-3" %>
+        <%= form_with model: @borrowing, url: item_borrowings_path(@item), local: true do |form| %>
+          <%= form.label :start_time, "Start Date" %>
+          <%= form.date_field :start_time, class: "form-control mb-3" %>
 
-    <%= form.label :end_time, "End Date" %>
-    <%= form.date_field :end_time, class: "form-control mb-3" %>
+          <%= form.label :end_time, "End Date" %>
+          <%= form.date_field :end_time, class: "form-control mb-3" %>
 
-    <%= form.submit "Borrow", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
-  </div>
+          <%= form.submit "Borrow", class: "btn btn-primary" %>
+
+        <% end %>
+    <% end %>
   </div>
 </div>

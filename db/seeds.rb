@@ -36,10 +36,10 @@ raphi = User.create!(
   )
 
 3.times do
-  Item.create!(name: Faker::Vehicle.make_and_model, category: 'wheels', user_id: User.all.sample.id)
-  Item.create!(name: Faker::Appliance.equipment, category: "appliances", user_id: User.all.sample.id)
-  Item.create!(name: ['Guitar', 'Saxophone', 'Synth', 'Ukulele', 'Cajon'].sample, category: 'instruments', user_id: User.all.sample.id)
+  Item.create!(name: Faker::Vehicle.make_and_model, category: 'Wheels', user_id: User.all.sample.id)
+  Item.create!(name: Faker::Appliance.equipment, category: "Appliances", user_id: User.all.sample.id)
+  Item.create!(name: ['Guitar', 'Saxophone', 'Synth', 'Ukulele', 'Cajon'].sample, category: 'Instruments', user_id: User.all.sample.id)
 end
 
-  Item.create!(name: 'Drill', category:'tools', user_id: claire.id)
-  Item.create!(name: 'blender', category: 'household', user_id: emre.id)
+  Item.create!(name: 'Drill', category:'Tools', user_id: claire.id)
+  Item.create!(name: 'blender', category: 'Household', user_id: emre.id)
