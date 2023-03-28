@@ -6,8 +6,8 @@
   height: 100px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  position: sticky;
-  bottom: 0;
+  // position: sticky;
+  // bottom: 0;
 }
 .footer-links {
   display: flex;
@@ -25,4 +25,10 @@
 }
 .footer .fa-heart {
   color: #D23333;
+}
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }

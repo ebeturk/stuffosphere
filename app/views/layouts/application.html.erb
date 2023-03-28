@@ -10,18 +10,28 @@
   </head>
 
   <body>
+
     <div class="page-container">
-    <div class="navbar-container"><%= render "shared/navbar" %></div>
-    <div class="content-container">
-      <div class="notice-stuffosphere end-0 top-0">
-        <p class="notice"><%= notice %></p>
+
+      <div class="navbar-container">
+        <%= render "shared/navbar" %>
       </div>
-      <div class="alerts-stuffosphere end-0 bottom-0">
-        <p class="alert alert-danger"><%= alert %></p>
+      
+      <div class="content-container">
+        <%= yield %>
+        <div class="notice-stuffosphere end-0 top-0">
+          <p class="notice"><%= notice %></p>
+        </div>
+        <div class="alerts-stuffosphere end-0 bottom-0">
+          <p class="alert-danger"><%= alert %></p>
+        </div>
       </div>
-      <%= yield %>
+
+      <div class="footer-container">
+        <%= render "shared/footer" %>
+      </div>
+
     </div>
-    <div class="footer-container"><%= render "shared/footer" %></div>
 
 
 
